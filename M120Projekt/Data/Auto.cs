@@ -6,20 +6,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace M120Projekt.Data
 {
-    public class KlasseA
+    public class Auto
     {
         #region Datenbankschicht
         [Key]
-        public Int64 KlasseAId { get; set; }
+        public Int64 AutoId { get; set; }
         [Required]
-        public String TextAttribut { get; set; }
+        public String Automarke { get; set; }
         [Required]
-        public DateTime DatumAttribut { get; set; }
+        public DateTime Erstzulassung { get; set; }
         [Required]
-        public Boolean BooleanAttribut { get; set; }
+        public Boolean Sitzheizung { get; set; }
+        [Required]
+        public int CHFproKm { get; set; }
+        [Required]
+        public String Motorisierung { get; set; }
+        [Required]
+        public String Treibstoff { get; set; }
+        [Required]
+        public Boolean Vermietet { get; set; }
+        [Required]
+        public String Bild { get; set; }
         #endregion
         #region Applikationsschicht
-        public KlasseA() { }
+        public Auto() { }
         [NotMapped]
         public String BerechnetesAttribut
         {
@@ -28,43 +38,43 @@ namespace M120Projekt.Data
                 return "Im Getter kann Code eingefügt werden für berechnete Attribute";
             }
         }
-        public static List<KlasseA> LesenAlle()
+        public static List<Auto> LesenAlle()
         {
             using (var db = new Context())
             {
-                return (from record in db.KlasseA select record).ToList();
+                return (from record in db.Auto select record).ToList();
             }
         }
-        public static KlasseA LesenID(Int64 klasseAId)
+        public static Auto LesenID(Int64 klasseAId)
         {
             using (var db = new Context())
             {
-                return (from record in db.KlasseA where record.KlasseAId == klasseAId select record).FirstOrDefault();
+                return (from record in db.Auto where record.AutoId == klasseAId select record).FirstOrDefault();
             }
         }
-        public static List<KlasseA> LesenAttributGleich(String suchbegriff)
+        public static List<Auto> LesenAttributGleich(String suchbegriff)
         {
             using (var db = new Context())
             {
-                return (from record in db.KlasseA where record.TextAttribut == suchbegriff select record).ToList();
+                return (from record in db.Auto where record.Automarke == suchbegriff select record).ToList();
             }
         }
-        public static List<KlasseA> LesenAttributWie(String suchbegriff)
+        public static List<Auto> LesenAttributWie(String suchbegriff)
         {
             using (var db = new Context())
             {
-                return (from record in db.KlasseA where record.TextAttribut.Contains(suchbegriff) select record).ToList();
+                return (from record in db.Auto where record.Automarke.Contains(suchbegriff) select record).ToList();
             }
         }
         public Int64 Erstellen()
         {
-            if (this.TextAttribut == null || this.TextAttribut == "") this.TextAttribut = "leer";
-            if (this.DatumAttribut == null) this.DatumAttribut = DateTime.MinValue;
+            if (this.Automarke == null || this.Automarke == "") this.Automarke = "leer";
+            if (this.Erstzulassung == null) this.Erstzulassung = DateTime.MinValue;
             using (var db = new Context())
             {
-                db.KlasseA.Add(this);
+                db.Auto.Add(this);
                 db.SaveChanges();
-                return this.KlasseAId;
+                return this.AutoId;
             }
         }
         public Int64 Aktualisieren()
@@ -73,7 +83,7 @@ namespace M120Projekt.Data
             {
                 db.Entry(this).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                return this.KlasseAId;
+                return this.AutoId;
             }
         }
         public void Loeschen()
@@ -86,7 +96,7 @@ namespace M120Projekt.Data
         }
         public override string ToString()
         {
-            return KlasseAId.ToString(); // Für bessere Coded UI Test Erkennung
+            return AutoId.ToString(); // Für bessere Coded UI Test Erkennung
         }
         #endregion
     }
