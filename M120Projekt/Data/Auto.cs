@@ -16,17 +16,18 @@ namespace M120Projekt.Data
         [Required]
         public DateTime Erstzulassung { get; set; }
         [Required]
-        public Boolean Sitzheizung { get; set; }
+        public Boolean HatSitzheizung { get; set; }
         [Required]
-        public int CHFproKm { get; set; }
+        public double CHFproKm { get; set; }
         [Required]
         public String Motorisierung { get; set; }
         [Required]
-        public String Treibstoff { get; set; }
+        public Treibstoff treibstoff { get; set; }
+        public Int64 TreibstoffId { get; set; }
         [Required]
-        public Boolean Vermietet { get; set; }
-        [Required]
-        public String Bild { get; set; }
+        public Boolean IstVermietet { get; set; }
+
+       
         #endregion
         #region Applikationsschicht
         public Auto() { }
@@ -49,7 +50,7 @@ namespace M120Projekt.Data
         {
             using (var db = new Context())
             {
-                return (from record in db.Auto where record.AutoId == klasseAId select record).FirstOrDefault();
+                return (from record in db.Auto where record.AutoId == klasseAId join ts in db.Treibstoff on record.TreibstoffId equals ts.TreibstoffId select record).FirstOrDefault();
             }
         }
         public static List<Auto> LesenAttributGleich(String suchbegriff)
@@ -72,6 +73,8 @@ namespace M120Projekt.Data
             if (this.Erstzulassung == null) this.Erstzulassung = DateTime.MinValue;
             using (var db = new Context())
             {
+                var ts = db.Treibstoff.Find(this.treibstoff.TreibstoffId);
+                this.treibstoff = ts;
                 db.Auto.Add(this);
                 db.SaveChanges();
                 return this.AutoId;
@@ -81,6 +84,8 @@ namespace M120Projekt.Data
         {
             using (var db = new Context())
             {
+                var ts = db.Treibstoff.Find(this.treibstoff.TreibstoffId);
+                this.treibstoff = ts;
                 db.Entry(this).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return this.AutoId;

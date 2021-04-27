@@ -62,6 +62,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Tastaturkuerzel.xaml.cs">
+      <DependentUpon>Tastaturkuerzel.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Listenansicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,13 +80,28 @@
     </Compile>
     <Compile Include="Data\Auto.cs" />
     <Compile Include="Data\Context.cs" />
+    <Compile Include="Data\Treibstoff.cs" />
+    <Compile Include="Listenansicht.xaml.cs">
+      <DependentUpon>Listenansicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NeuesAuto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tastaturkuerzel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NeuesAuto.xaml.cs">
+      <DependentUpon>NeuesAuto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -107,6 +129,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Basket.png" />
+    <Resource Include="Image\Floppy_Disk.png" />
+    <Resource Include="Image\Home.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

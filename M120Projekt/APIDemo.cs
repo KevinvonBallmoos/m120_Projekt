@@ -7,31 +7,34 @@ namespace M120Projekt
     {
         #region KlasseA
         // Create
-        public static void DemoACreate()
+        public static void Create()
         {
-            Debug.Print("--- DemoACreate ---");
+            Data.Treibstoff treibstoff = new Data.Treibstoff();
             // KlasseA
             Data.Auto klasseA1 = new Data.Auto();
-            klasseA1.Automarke = "Artikel 1";
-            klasseA1.Erstzulassung = DateTime.Today;
-            klasseA1.Bild = "image.png";
+            klasseA1.Automarke = "Audi";
+            klasseA1.Erstzulassung = DateTime.Today; 
             klasseA1.CHFproKm = 10;
             klasseA1.Motorisierung = "2.0TFSI";
-            klasseA1.Treibstoff = "Benzin";
+            //klasseA1.treibstoff = treibstoff.Treibstoffid;
+            klasseA1.HatSitzheizung = true;
             Int64 klasseA1Id = klasseA1.Erstellen();
-            Debug.Print("Artikel erstellt mit Id:" + klasseA1Id);
+            Debug.Print("Auto erstellt mit Id:" + klasseA1Id);
         }
+
+        /*
         public static void DemoACreateKurz()
         {
-            Data.Auto klasseA2 = new Data.Auto { Automarke = "Artikel 2", Sitzheizung = true, Erstzulassung = DateTime.Today, Bild = "noimage.png", CHFproKm = 10, Motorisierung = "2.0FSI", Treibstoff = "Benzin", Vermietet = true };
+            Data.Auto klasseA2 = new Data.Auto { Automarke = "Artikel 2", HatSitzheizung = true, Erstzulassung = DateTime.Today, CHFproKm = 10, Motorisierung = "2.0FSI", IstVermietet = true };
             Int64 klasseA2Id = klasseA2.Erstellen();
             Debug.Print("Artikel erstellt mit Id:" + klasseA2Id);
         }
+        */
 
         // Read
-        public static void DemoARead()
+        public static void Read()
         {
-            Debug.Print("--- DemoARead ---");
+            Debug.Print("--- Read ---");
             // Demo liest alle
             foreach (Data.Auto klasseA in Data.Auto.LesenAlle())
             {
@@ -39,7 +42,7 @@ namespace M120Projekt
             }
         }
         // Update
-        public static void DemoAUpdate()
+        public static void Update()
         {
             Debug.Print("--- DemoAUpdate ---");
             // KlasseA ändert Attribute
@@ -48,7 +51,7 @@ namespace M120Projekt
             klasseA1.Aktualisieren();
         }
         // Delete
-        public static void DemoADelete()
+        public static void Delete()
         {
             Debug.Print("--- DemoADelete ---");
             Data.Auto.LesenID(2).Loeschen();

@@ -10,13 +10,29 @@ namespace M120Projekt
         public MainWindow()
         {
             InitializeComponent();
-            // Aufruf diverse APIDemo Methoden
-            APIDemo.DemoACreate();
-            APIDemo.DemoACreateKurz();
-            APIDemo.DemoARead();
-            APIDemo.DemoAUpdate();
-            APIDemo.DemoARead();
-            APIDemo.DemoADelete();
         }
+       
+        private void btnBeenden_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAlleAutos_Click(object sender, RoutedEventArgs e)
+        {
+            scrlvrplatzhalter.Content = new Listenansicht(scrlvrplatzhalter);
+        }
+
+        private void btnAuto_Click(object sender, RoutedEventArgs e)
+        {
+            scrlvrplatzhalter.Content = new NeuesAuto();
+        }
+
+        private void MainWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            
+        }
+
+        
+
     }
 }

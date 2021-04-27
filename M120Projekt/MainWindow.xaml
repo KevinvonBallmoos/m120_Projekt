@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M120Projekt"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d"     
+        Title="Car Rent" Height="468" Width="800"
+        KeyDown="MainWindow_KeyDown">
+    <Grid Background="#FF1BF0F4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="491*"/>
+            <ColumnDefinition Width="302*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Button -->
+        <Button x:Name="btnCarRent" HorizontalAlignment="Left" Height="39" Margin="29,8,0,0" VerticalAlignment="Top" Width="54" Background="#FF1BF0F4" TabIndex="15">
+            <Image x:Name="imgHomeImage" HorizontalAlignment="Left" Width="52" RenderTransformOrigin="-1.009,-2.313" OpacityMask="#FF150D0D" Source="Home.jpg" Height="37"/>
+        </Button>
+        <Button x:Name="btnAlleAutos" Content="Alle Autos" HorizontalAlignment="Left" Margin="267,19,0,0" VerticalAlignment="Top" Width="75" Background="#FF1F31F3" TabIndex="13" Click="btnAlleAutos_Click"/>
+        <Button x:Name="btnAuto" Content="Auto" HorizontalAlignment="Left" Margin="445,19,0,0" VerticalAlignment="Top" Width="75" Background="Red" TabIndex="14" Click="btnAuto_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnBeenden" Content="Beenden" HorizontalAlignment="Left" Margin="193.8,404,0,0" VerticalAlignment="Top" Width="75" Click="btnBeenden_Click" TabIndex="26" Grid.Column="1"/>
+
+        <!-- Ellipse -->
+        <Ellipse Fill="#FF1BF0F4" HorizontalAlignment="Left" Height="30" Margin="238.8,8,0,0" Stroke="#FF0718CD" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.307,2.673" Grid.Column="1"/>
+
+        <!-- Grid for UserControl-->
+        <Grid Background="White" Margin="0,60,-6.4,39" Width="800" Grid.ColumnSpan="2"/>
+
+        <!-- ScrollViewer -->
+        <ScrollViewer x:Name="scrlvrplatzhalter" Margin="0,52,-0.4,34" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="2"/>
         
+        <!-- Label -->
+        <Label x:Name="lblInfo" Content="Für Tastaturkürzel F1 drücken" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Width="170"/>
+
     </Grid>
 </Window>

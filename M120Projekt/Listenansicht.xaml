@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="M120Projekt.Listenansicht"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:M120Projekt"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800" Height="330"
+             KeyDown="Listenansicht_KeyDown">
+
+    <!-- DataGrid -->
+    <DataGrid x:Name="datagridliste" ItemsSource="{Binding}" Margin="0,0,0.4,10" MouseDoubleClick="datagridliste_MouseDoubleClick" AutoGenerateColumns="False" Height="330">
+        <DataGrid.Columns>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding AutoId}" Header="AutoId" Width="50"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Automarke}" Header="Automarke" Width="100"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Motorisierung}" Header="Motorisierung" Width="100"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding CHFproKm}" Header="Preis" Width="50"/>
+            <DataGridCheckBoxColumn IsReadOnly="True" Binding="{Binding HatSitzheizung }" Header="Sitzheizung" Width="100"/>
+            <DataGridCheckBoxColumn IsReadOnly="True" Binding="{Binding IstVermietet}" Header="Vermietet" Width="100"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Erstzulassung, StringFormat=\{0:dd.MM.yy\}}" Header="Erstzulassung" Width="100"/>
+            <DataGridTextColumn IsReadOnly="True" Binding="{Binding TreibstoffId}" Header="TreibstoffId" Width="100"/>
+        </DataGrid.Columns>
+        
+    </DataGrid>
+</UserControl>

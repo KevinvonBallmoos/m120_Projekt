@@ -1,0 +1,15 @@
+﻿<Window x:Class="M120Projekt.Tastaturkuerzel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M120Projekt"
+        mc:Ignorable="d"
+        Title="Tastaturkuerzel" Height="406.28" Width="440.64"
+        KeyDown="Tastatur_KeyDown">
+    <Grid Margin="0,0,26.6,-4">
+        <Label x:Name="lblTitel" Content="Tastaturkürzel" HorizontalAlignment="Left" Margin="60,41,0,0" VerticalAlignment="Top" Width="179" Height="43" FontSize="15" FontWeight="Bold"/>
+        <Label x:Name="lblText" HorizontalAlignment="Left" Margin="60,89,0,0" VerticalAlignment="Top" Width="320" Height="207" FontSize="13"/>
+        <Button x:Name="btnBeenden" Content="Beenden" HorizontalAlignment="Left" Margin="303,318,0,0" VerticalAlignment="Top" Width="77" Height="22" Click="btnBeenden_Click"/>
+    </Grid>
+</Window>
